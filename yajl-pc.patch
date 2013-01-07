@@ -1,0 +1,9 @@
+--- lloyd-yajl-fee1ebe/src/CMakeLists.txt.orig	2011-12-20 01:23:22.000000000 +0100
++++ lloyd-yajl-fee1ebe/src/CMakeLists.txt	2013-01-07 17:52:20.962604523 +0100
+@@ -82,5 +82,5 @@
+   INSTALL(TARGETS yajl_s ARCHIVE DESTINATION lib${LIB_SUFFIX})
+   INSTALL(FILES ${PUB_HDRS} DESTINATION include/yajl)
+   INSTALL(FILES ${incDir}/yajl_version.h DESTINATION include/yajl)
+-  INSTALL(FILES ${shareDir}/yajl.pc DESTINATION share/pkgconfig)
++  INSTALL(FILES ${shareDir}/yajl.pc DESTINATION lib${LIB_SUFFIX}/pkgconfig)
+ ENDIF()

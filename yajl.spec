@@ -1,12 +1,13 @@
 Summary:	Yet Another JSON Library
 Summary(pl.UTF-8):	Yet Another JSON Library - jeszcze jedna biblioteka JSON
 Name:		yajl
-Version:	1.0.11
+Version:	2.0.4
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://github.com/lloyd/yajl/tarball/1.0.11/%{name}-%{version}.tar.gz
-# Source0-md5:	5b60f4d59b3b1fb42d7808d08460fb12
+Source0:	http://github.com/lloyd/yajl/tarball/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	ee6208e697c43dcccf798ce80d370379
+Patch0:		%{name}-pc.patch
 URL:		http://lloyd.github.com/yajl/
 BuildRequires:	cmake >= 2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -44,7 +45,8 @@ Static YAJL library.
 Statyczna biblioteka YAJL.
 
 %prep
-%setup -q -n lloyd-yajl-f4baae0
+%setup -q -n lloyd-yajl-fee1ebe
+%patch0 -p1
 
 %build
 install -d build
@@ -78,12 +80,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/json_reformat
 %attr(755,root,root) %{_bindir}/json_verify
 %attr(755,root,root) %{_libdir}/libyajl.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libyajl.so.1
+%attr(755,root,root) %ghost %{_libdir}/libyajl.so.2
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libyajl.so
 %{_includedir}/yajl
+%{_pkgconfigdir}/yajl.pc
 
 %files static
 %defattr(644,root,root,755)
