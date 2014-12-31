@@ -58,6 +58,9 @@ cd build
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
+%if "%{_lib}" == "libx32"
+	-DLIB_SUFFIX=x32 \
+%endif
 	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
 	-DCMAKE_VERBOSE_MAKEFILE=ON
