@@ -1,14 +1,14 @@
 Summary:	Yet Another JSON Library
 Summary(pl.UTF-8):	Yet Another JSON Library - jeszcze jedna biblioteka JSON
 Name:		yajl
-Version:	2.0.4
+Version:	2.1.0
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://github.com/lloyd/yajl/tarball/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	ee6208e697c43dcccf798ce80d370379
+Source0:	https://github.com/lloyd/yajl/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	6887e0ed7479d2549761a4d284d3ecb0
 Patch0:		%{name}-pc.patch
-URL:		http://lloyd.github.com/yajl/
+URL:		http://lloyd.github.io/yajl/
 BuildRequires:	cmake >= 2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,7 +45,7 @@ Static YAJL library.
 Statyczna biblioteka YAJL.
 
 %prep
-%setup -q -n lloyd-yajl-fee1ebe
+%setup -q
 %patch0 -p1
 
 %build
@@ -61,7 +61,6 @@ cd build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
