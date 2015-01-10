@@ -52,6 +52,13 @@ Statyczna biblioteka YAJL.
 %setup -q
 %patch0 -p1
 
+%if "%{pld_release}" == "ac"
+#cc1: error: unrecognized option `-Wextra'
+#cc1: error: unrecognized option `-Wold-style-definition'
+%{__sed} -i -e 's/-Wold-style-definition//' CMakeLists.txt
+%{__sed} -i -e 's/-Wextra//' CMakeLists.txt
+%endif
+
 %build
 install -d build
 cd build
