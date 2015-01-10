@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests		# build without tests
+
 Summary:	Yet Another JSON Library
 Summary(pl.UTF-8):	Yet Another JSON Library - jeszcze jedna biblioteka JSON
 Name:		yajl
@@ -58,6 +62,9 @@ cd build
 	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
 	-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
 	-DCMAKE_VERBOSE_MAKEFILE=ON
+
+%{__make}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
