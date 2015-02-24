@@ -6,7 +6,7 @@ Summary:	Yet Another JSON Library
 Summary(pl.UTF-8):	Yet Another JSON Library - jeszcze jedna biblioteka JSON
 Name:		yajl
 Version:	2.1.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	https://github.com/lloyd/yajl/archive/%{version}/%{name}-%{version}.tar.gz
