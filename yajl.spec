@@ -16,6 +16,8 @@ URL:		http://lloyd.github.io/yajl/
 BuildRequires:	cmake >= 2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_debugsource_packages	0
+
 %description
 YAJL (Yet Another JSON Library) is a JSON parsing library written in
 C.
