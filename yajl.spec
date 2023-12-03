@@ -6,7 +6,7 @@ Summary:	Yet Another JSON Library
 Summary(pl.UTF-8):	Yet Another JSON Library - jeszcze jedna biblioteka JSON
 Name:		yajl
 Version:	2.1.0
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 Source0:	https://github.com/lloyd/yajl/archive/%{version}/%{name}-%{version}.tar.gz
@@ -15,8 +15,6 @@ Patch0:		%{name}-pc.patch
 URL:		http://lloyd.github.io/yajl/
 BuildRequires:	cmake >= 2.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_debugsource_packages	0
 
 %description
 YAJL (Yet Another JSON Library) is a JSON parsing library written in
@@ -66,17 +64,14 @@ install -d build
 cd build
 
 %cmake .. \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DLIB_INSTALL_DIR=%{_libdir} \
-	-DCMAKE_BUILD_TYPE=%{!?debug:Release}%{?debug:Debug} \
-	-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
-	-DCMAKE_VERBOSE_MAKEFILE=ON
+	-DLIB_INSTALL_DIR=%{_libdir}
 
 %{__make}
 %{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
