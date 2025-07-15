@@ -50,7 +50,7 @@ Statyczna biblioteka YAJL.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %if "%{pld_release}" == "ac"
 #cc1: error: unrecognized option `-Wextra'
